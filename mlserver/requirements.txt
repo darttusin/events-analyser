@@ -1,0 +1,6 @@
+mlserver
+mlserver[rest]
+torch
+transformers
+scikit-learn
+pytorch_lightning

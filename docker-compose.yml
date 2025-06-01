@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  inference:
+    build:
+      context: ./inference
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_URL: "http://mlserver:8080/v2/models/event-classifier/infer"
+    depends_on:
+      - mlserver
+
+  mlserver:
+    build:
+      context: ./mlserver
+    volumes:
+      - ./model/data:/mlserver/data
+      - ./model:/mlserver
